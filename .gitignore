@@ -1,0 +1,8 @@
+bin
+lib
+lib64
+pip-selfcheck.json
+pyvenv.cfg
+share
+slackweather.egg-info
+__pycache__
