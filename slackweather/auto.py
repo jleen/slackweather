@@ -41,6 +41,7 @@ def get_emoji_for_weather(weather):
 
 def set_profile_from_weather():
     location = config.location
+    location_name = config.location_name
     weather = darksky.get_weather(location)
     emoji = get_emoji_for_weather(weather)
-    slack.set_profile(location, emoji)
+    slack.set_profile(location_name, emoji)
