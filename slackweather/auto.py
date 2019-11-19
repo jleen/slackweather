@@ -15,6 +15,17 @@ CONDITIONS = { 'Thunderstorm': 'thunder_cloud_and_rain',
                'snow': 'snowflake',
                'partly-cloudy-night': NIGHT_STATUS }
 
+
+def work_hours(when):
+    h = time.localtime(when).tm_hour
+    m = time.localtime(when).tm_min
+
+    if h < 8: return False
+    if h > 18: return False
+    if h == 18 and m >= 30: return False
+    return True
+
+
 def get_emoji_for_weather(weather):
     now = time.time()
 
@@ -33,7 +44,7 @@ def get_emoji_for_weather(weather):
         print('Sunset: ' + str(sunset))
         print('Now: ' + str(now))
 
-    if now < sunrise or now > sunset:
+    if (now < sunrise or now > sunset) and not work_hours(now):
         return NIGHT_STATUS
     else:
         return CONDITIONS.get(condition, DEFAULT_STATUS)
