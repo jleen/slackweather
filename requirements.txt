@@ -7,6 +7,6 @@ pycodestyle==2.4.0
 requests==2.31.0
 six==1.11.0
 slackclient==1.2.1
-urllib3==1.26.5
+urllib3==1.26.18
 websocket-client==0.48.0
 -e .
